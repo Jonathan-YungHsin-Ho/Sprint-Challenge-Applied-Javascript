@@ -8,13 +8,14 @@
 //  The tab component should look like this:
 //    <div class="tab">topic here</div>
 
+document.querySelector('.topics').append(createTab('All'));
+
 axios
   .get('https://lambda-times-backend.herokuapp.com/topics')
   .then(response =>
-    response.data.topics.forEach(element => {
-      const topics = document.querySelector('.topics');
-      topics.append(createTab(element));
-    }),
+    response.data.topics.forEach(element =>
+      document.querySelector('.topics').append(createTab(element)),
+    ),
   )
   .catch(err => console.log(err));
 
@@ -24,18 +25,18 @@ function createTab(topic) {
   tab.textContent = topic;
 
   tab.addEventListener('click', event => {
-    const allTabs = document.querySelectorAll('.tab');
-    allTabs.forEach(element => element.classList.remove('active-tab'));
+    document
+      .querySelectorAll('.tab')
+      .forEach(element => element.classList.remove('active-tab'));
     tab.classList.add('active-tab');
 
     topic === 'node.js' ? (topic = 'node') : topic;
+    topic === 'All' ? (topic = 'topic') : topic;
 
-    const allCards = document.querySelectorAll('.topic');
-    allCards.forEach(element => {
-      element.style.display = 'none';
-      if (element.classList.contains(topic)) {
-        element.style.display = 'block';
-      }
+    document.querySelectorAll('.topic').forEach(element => {
+      element.classList.contains(topic)
+        ? (element.style.display = 'block')
+        : (element.style.display = 'none');
     });
   });
 

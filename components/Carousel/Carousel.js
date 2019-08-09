@@ -53,11 +53,6 @@ function createCarousel() {
   img3.src = './assets/carousel/trees.jpeg';
   img4.src = './assets/carousel/turntable.jpeg';
 
-  // img1.style.display = 'none';
-  // img2.style.display = 'none';
-  // img3.style.display = 'none';
-  // img4.style.display = 'none';
-
   leftBtn.addEventListener('click', event => {
     TweenMax.to(img1, 5, { xPercent: 150 });
     TweenMax.to(img2, 5, { xPercent: 150 });
