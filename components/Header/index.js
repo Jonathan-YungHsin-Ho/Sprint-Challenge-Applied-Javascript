@@ -27,4 +27,9 @@ function Header() {
   temp.classList.add('temp');
 
   // Set content
+  date.textContent = 'MARCH 28, 2019';
+  lambdaTimes.textContent = 'Lambda Times';
+  temp.textContent = '98°';
+
+  return header;
 }
