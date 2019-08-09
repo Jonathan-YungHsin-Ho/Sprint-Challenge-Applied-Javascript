@@ -32,6 +32,10 @@ function createArticle(obj) {
   const img = document.createElement('img');
 
   // Set up structure of elements
+  card.append(headline);
+  card.append(author);
+  author.append(imgContainer);
+  imgContainer.append(img);
 
   // Set class names
 
