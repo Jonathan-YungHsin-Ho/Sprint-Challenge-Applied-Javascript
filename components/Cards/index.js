@@ -46,6 +46,9 @@ function createArticle(obj) {
   imgContainer.classList.add('img-container');
 
   // Set content
+  headline.textContent = obj.headline;
+  img.src = obj.authorPhoto;
+  authorName.textContent = `By ${obj.authorName}`;
 
   return article;
 }
