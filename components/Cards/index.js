@@ -20,7 +20,17 @@
 
 axios
   .get('https://lambda-times-backend.herokuapp.com/articles')
-  .then(response => console.log(response))
+  .then(response => {
+    for (let key in response.data.articles) {
+      if (response.data.articles.hasOwnProperty(key)) {
+        const articleArray = response.data.articles[key];
+        articleArray.forEach(article => {
+          const cardsContainer = document.querySelector('.cards-container');
+          cardsContainer.append(createArticle(article));
+        });
+      }
+    }
+  })
   .catch(err => console.log(err));
 
 function createArticle(obj) {
@@ -50,5 +60,5 @@ function createArticle(obj) {
   img.src = obj.authorPhoto;
   authorName.textContent = `By ${obj.authorName}`;
 
-  return article;
+  return card;
 }
