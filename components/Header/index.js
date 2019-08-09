@@ -22,6 +22,9 @@ function Header() {
   header.append(temp);
 
   // Set class names
+  header.classList.add('header');
+  date.classList.add('date');
+  temp.classList.add('temp');
 
   // Set content
 }
