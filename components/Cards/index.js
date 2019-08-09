@@ -21,15 +21,33 @@
 axios
   .get('https://lambda-times-backend.herokuapp.com/articles')
   .then(response => {
-    for (let key in response.data.articles) {
-      if (response.data.articles.hasOwnProperty(key)) {
-        const articleArray = response.data.articles[key];
-        articleArray.forEach(article => {
-          const cardsContainer = document.querySelector('.cards-container');
-          cardsContainer.append(createArticle(article));
-        });
-      }
-    }
+    // for (let key in response.data.articles) {
+    const topicsArray = Object.keys(response.data.articles);
+    // console.log(topicsArray);
+
+    topicsArray.forEach(topic => {
+      //   console.log(topic);
+      //   console.log(response.data.articles[topic]);
+      articleArray = response.data.articles[topic];
+      articleArray.forEach(article => {
+        const cardsContainer = document.querySelector('.cards-container');
+        const cardTopic = document.createElement('div');
+        cardTopic.classList.add('topic');
+        cardTopic.classList.add(topic);
+        cardTopic.dataset.topic = topic;
+        cardsContainer.append(cardTopic);
+        cardTopic.append(createArticle(article));
+      });
+    });
+
+    //   if (response.data.articles.hasOwnProperty(key)) {
+    //     const articleArray = response.data.articles[key];
+    //     articleArray.forEach(article => {
+    //       const cardsContainer = document.querySelector('.cards-container');
+    //       cardsContainer.append(createArticle(article));
+    //     });
+    //   }
+    // }
   })
   .catch(err => console.log(err));
 
