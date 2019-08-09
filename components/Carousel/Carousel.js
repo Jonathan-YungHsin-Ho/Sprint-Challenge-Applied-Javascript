@@ -29,6 +29,12 @@ function createCarousel() {
   const rightBtn = document.createElement('div');
 
   // Set up structure of elements
+  carousel.append(leftBtn);
+  carousel.append(img1);
+  carousel.append(img2);
+  carousel.append(img3);
+  carousel.append(img4);
+  carousel.append(rightBtn);
 
   // Set class names
 
