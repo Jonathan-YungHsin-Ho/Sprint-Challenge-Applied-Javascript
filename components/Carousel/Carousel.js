@@ -37,6 +37,9 @@ function createCarousel() {
   carousel.append(rightBtn);
 
   // Set class names
+  carousel.classList.add('carousel');
+  leftBtn.classList.add('left-button');
+  rightBtn.classList.add('right-button');
 
   // Set content
 
