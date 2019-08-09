@@ -41,9 +41,17 @@ function createCarousel() {
   leftBtn.classList.add('left-button');
   rightBtn.classList.add('right-button');
 
-  // Set content
+  // Set image sources
+  img1.src = './assets/carousel/mountains.jpeg';
+  img2.src = './assets/carousel/computer.jpeg';
+  img3.src = './assets/carousel/trees.jpeg';
+  img4.src = './assets/carousel/turntable.jpeg';
 
   // Button functionality
 
   return carousel;
 }
+
+const carouselContainer = document.querySelector('.carousel-container');
+
+carouselContainer.append(createCarousel());
