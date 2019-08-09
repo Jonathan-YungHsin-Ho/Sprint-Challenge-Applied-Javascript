@@ -17,6 +17,9 @@ function Header() {
   const temp = document.createElement('span');
 
   // Set up structure of elements
+  header.append(date);
+  header.append(lambdaTimes);
+  header.append(temp);
 
   // Set class names
 
