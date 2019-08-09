@@ -17,3 +17,24 @@
     <div class="right-button"> > </div>
   </div>
 */
+
+function createCarousel() {
+  // Define new elements
+  const carousel = document.createElement('div');
+  const leftBtn = document.createElement('div');
+  const img1 = document.createElement('img');
+  const img2 = document.createElement('img');
+  const img3 = document.createElement('img');
+  const img4 = document.createElement('img');
+  const rightBtn = document.createElement('div');
+
+  // Set up structure of elements
+
+  // Set class names
+
+  // Set content
+
+  // Button functionality
+
+  return carousel;
+}
