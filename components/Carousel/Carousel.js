@@ -17,3 +17,63 @@
     <div class="right-button"> > </div>
   </div>
 */
+
+function createCarousel() {
+  // Define new elements
+  const carousel = document.createElement('div');
+  const leftBtn = document.createElement('div');
+  const img1 = document.createElement('img');
+  const img2 = document.createElement('img');
+  const img3 = document.createElement('img');
+  const img4 = document.createElement('img');
+  const rightBtn = document.createElement('div');
+
+  // Set up structure of elements
+  carousel.append(leftBtn);
+  carousel.append(img1);
+  carousel.append(img2);
+  carousel.append(img3);
+  carousel.append(img4);
+  carousel.append(rightBtn);
+
+  // Set class names
+  carousel.classList.add('carousel');
+  leftBtn.classList.add('left-button');
+  rightBtn.classList.add('right-button');
+
+  // Set content
+  leftBtn.textContent = ' < ';
+  rightBtn.textContent = ' > ';
+  leftBtn.style.zIndex = '9999';
+  rightBtn.style.zIndex = '9999';
+
+  // Set image sources
+  img1.src = './assets/carousel/mountains.jpeg';
+  img2.src = './assets/carousel/computer.jpeg';
+  img3.src = './assets/carousel/trees.jpeg';
+  img4.src = './assets/carousel/turntable.jpeg';
+
+  // img1.style.display = 'none';
+  // img2.style.display = 'none';
+  // img3.style.display = 'none';
+  // img4.style.display = 'none';
+
+  leftBtn.addEventListener('click', event => {
+    TweenMax.to(img1, 5, { xPercent: 150 });
+    TweenMax.to(img2, 5, { xPercent: 150 });
+    TweenMax.to(img3, 5, { xPercent: 150 });
+    TweenMax.to(img4, 5, { xPercent: 150 });
+  });
+
+  rightBtn.addEventListener('click', event => {
+    TweenMax.to(img1, 5, { xPercent: -150 });
+    TweenMax.to(img2, 5, { xPercent: -150 });
+    TweenMax.to(img3, 5, { xPercent: -150 });
+    TweenMax.to(img4, 5, { xPercent: -150 });
+  });
+
+  return carousel;
+}
+
+const carouselContainer = document.querySelector('.carousel-container');
+carouselContainer.append(createCarousel());
