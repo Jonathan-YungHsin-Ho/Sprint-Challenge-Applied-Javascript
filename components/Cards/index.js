@@ -30,14 +30,20 @@ function createArticle(obj) {
   const author = document.createElement('div');
   const imgContainer = document.createElement('div');
   const img = document.createElement('img');
+  const authorName = document.createElement('span');
 
   // Set up structure of elements
   card.append(headline);
   card.append(author);
   author.append(imgContainer);
   imgContainer.append(img);
+  author.append(authorName);
 
   // Set class names
+  card.classList.add('card');
+  headline.classList.add('headline');
+  author.classList.add('author');
+  imgContainer.classList.add('img-container');
 
   // Set content
 
